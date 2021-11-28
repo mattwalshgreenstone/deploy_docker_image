@@ -4,7 +4,8 @@
 FROM cypress/included:9.1.0
 
 RUN wget -q -O - https://dl.google.com/linux/linux_signing_key.pub | apt-key add - && \
-    DEBIAN_FRONTEND=noninteractive apt-get update && \
+    DEBIAN_FRONTEND=noninteractive \
+    apt-get update && \
     apt-get install --no-install-recommends  -y \
     ssh \
     git \
@@ -13,6 +14,7 @@ RUN wget -q -O - https://dl.google.com/linux/linux_signing_key.pub | apt-key add
     curl \
     ca-certificates \
     python3 \
+    less \
     && \
     # clean up
     rm -rf /var/lib/apt/lists/*  && \
